@@ -1,4 +1,6 @@
 <?php
+use App\Http\Controllers\HomeController;
+use App\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -10,7 +12,14 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('list', function(){
+    $data = User::all();
+    return view('index', compact('data'));
+});
+
 
 Route::get('/', function () {
     echo '<h1>Welcome e4m </h1>';
 });
+
+
