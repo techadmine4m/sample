@@ -37,7 +37,14 @@ pipeline {
           }
         }
       }
-	  
+	 
+      stage('Deploy to GKE') {
+            steps{
+                sh "sed -i 's/sample:latest/sample:$BUILD_NUMBER/' sample-web-deployment.yaml"
+                step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: 'sample-web-deployment.yaml', credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
+            }
+        }
+ 
 	  
     }
    
