@@ -12,5 +12,5 @@
 */
 
 Route::get('/', function () {
-    echo '<h1>Welcome Deep World!!!!   thank ravi now db karna hai</h1>';
+    echo '<h1>Welcome e4m </h1>';
 });
