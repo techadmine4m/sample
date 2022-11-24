@@ -14,6 +14,9 @@ class User extends Authenticatable
      *
      * @var array
      */
+    protected $table = "users-kubernetes";
+
+    
     protected $fillable = [
         'name', 'email', 'password',
     ];
